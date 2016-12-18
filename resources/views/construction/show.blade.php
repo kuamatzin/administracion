@@ -6,6 +6,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <a href="/obras" class="btn btn-warning">Atras</a>
                         <h1>{{$obra->name}}</h1>
                     </div>
                     <div class="panel-body">

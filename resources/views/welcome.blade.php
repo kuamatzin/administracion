@@ -73,9 +73,9 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <!--
-                        <a style="color:white" href="{{ url('/sistema') }}">Iniciar Sesión</a>
+                        <a style="color:white" href="{{ url('/obras') }}">Iniciar Sesión</a>
                         -->
-                        <a style="color:white" href="/sistema">Iniciar Sesión</a>
+                        <a style="color:white" href="/obras">Iniciar Sesión</a>
                         <a  style="color:white"href="{{ url('/register') }}">Registar</a>
                     @endif
                 </div>

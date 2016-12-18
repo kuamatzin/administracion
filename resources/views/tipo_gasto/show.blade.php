@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <a href="/gasto_general/{{$tipo_gasto->general_expenditure->id}}" class="btn btn-warning">Atras</a>
                 <div class="row">
                     <div class="col-md-6">
                         <h1>{{$tipo_gasto->name}}</h1>
