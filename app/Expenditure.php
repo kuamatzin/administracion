@@ -20,10 +20,7 @@ class Expenditure extends Model
 
     public function getDeductible()
     {
-        if ($this->deductible) {
-            return "Deducible";
-        }
-        return "No deducible";
+        return $this->deductible ? 'Deducible' : 'No deducible';
     }
 
     public function getUnitCost()

@@ -23,27 +23,21 @@ class ExpenditureType extends Model
     public function deductible_expenditures($formated = false)
     {
         $deductible_expenditures = $this->expenditures->where('deductible', 1)->sum('total');
-        if ($formated) {
-            return '$' . number_format($deductible_expenditures, 2);
-        }
-        return $deductible_expenditures;
+
+        return $formated ? '$' . number_format($deductible_expenditures, 2) : $deductible_expenditures;
     }
 
     public function no_deductible_expenditures($formated = false)
     {
         $no_deductible_expenditures =$this->expenditures->where('deductible', 0)->sum('total');
-        if ($formated) {
-            return '$' . number_format($no_deductible_expenditures, 2);
-        }
-        return $no_deductible_expenditures;
+
+        return $formated ? '$' . number_format($no_deductible_expenditures, 2) : $no_deductible_expenditures;
     }
 
     public function total($formated = false)
     {
         $total = $this->expenditures->sum('total');
-        if ($formated) {
-            return '$' . number_format($total);
-        }
-        return $total;
+
+        return $formated ? '$' . number_format($total) : $total;
     }
 }
