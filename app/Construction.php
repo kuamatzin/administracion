@@ -21,10 +21,7 @@ class Construction extends Model
         foreach ($this->general_expenditures as $key => $general_expenditure) {
             $deductible_expenditures =  $deductible_expenditures + $general_expenditure->general_deductible();
         }
-        if ($formated) {
-            return '$' .  number_format($deductible_expenditures, 2);
-        }
-        return $deductible_expenditures;
+        return $formated ? '$' .  number_format($deductible_expenditures, 2) : $deductible_expenditures;
     }
 
     public function no_deductible_expenditures($formated = false)
@@ -33,10 +30,7 @@ class Construction extends Model
         foreach ($this->general_expenditures as $key => $general_expenditure) {
             $no_deductible_expenditures =  $no_deductible_expenditures + $general_expenditure->general_no_deductible();
         }
-        if ($formated) {
-            return '$' .  number_format($no_deductible_expenditures, 2);
-        }
-        return $no_deductible_expenditures;
+        return $formated ? '$' .  number_format($no_deductible_expenditures, 2) : $no_deductible_expenditures;
     }
 
     public function total($formated = false)
@@ -45,14 +39,17 @@ class Construction extends Model
         foreach ($this->general_expenditures as $key => $general_expenditure) {
             $total =  $total + $general_expenditure->total();
         }
-        if ($formated) {
-            return '$' .  number_format($total, 2);
-        }
-        return $total;
+
+        return $formated ? '$' .  number_format($total, 2) : $total;
     }
 
     public function incomes()
     {
         return $this->hasMany(Income::class);
+    }
+
+    public function total_incomes($formated = false)
+    {
+        return $formated ? '$' .  number_format($this->incomes->sum('quantity'), 2) : $this->incomes->sum('quantity');
     }
 }

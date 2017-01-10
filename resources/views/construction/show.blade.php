@@ -15,6 +15,43 @@
                                 <h3 class="panel-title">Resumen de Proyecto</h3>
                             </div>
                             <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3>Ingresos</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Ingresos Totales</td>
+                                                        <td>{{$obra->total_incomes(true)}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h3>Gastos</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Gastos deducibles de obra</td>
+                                                        <td>{{$obra->deductible_expenditures(true)}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gastos no deducibles de obra</td>
+                                                        <td>{{$obra->no_deductible_expenditures(true)}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gastos Totales</td>
+                                                        <td>{{$obra->total(true)}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
                                 {!! $chart->render() !!}
                             </div>
                         </div>
@@ -55,7 +92,7 @@
                                                    @foreach($obra->incomes->reverse()->take(5) as $key => $income)
                                                    <tr>
                                                        <td>{{$income->concept}}</td>
-                                                       <td>${{$income->quantity}}</td>
+                                                       <td>{{$income->quantity(true)}}</td>
                                                        <td>{{$income->account->account_number}}</td>
                                                        <td>{{$income->account->bank}}</td>
                                                    </tr>

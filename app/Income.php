@@ -14,9 +14,9 @@ class Income extends Model
         return $this->belongsTo(Construction::class);
     }
 
-    public function getQuantityAttribute($value)
+    public function quantity($formated = false)
     {
-        return number_format($value, 2);
+        return $formated ? '$' . number_format($this->quantity) : $this->quantity;
     }
 
     public function account()
