@@ -12,6 +12,8 @@ Route::resource('/tipo_gasto', 'ExpenditureTypeController');
 
 Route::resource('/gasto', 'ExpenditureController');
 
+Route::resource('/ingreso', 'IncomeController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

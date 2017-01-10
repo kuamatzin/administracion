@@ -3,6 +3,7 @@
 namespace App;
 
 use App\GeneralExpenditure;
+use App\Income;
 use Illuminate\Database\Eloquent\Model;
 
 class Construction extends Model
@@ -48,5 +49,10 @@ class Construction extends Model
             return '$' .  number_format($total, 2);
         }
         return $total;
+    }
+
+    public function incomes()
+    {
+        return $this->hasMany(Income::class);
     }
 }

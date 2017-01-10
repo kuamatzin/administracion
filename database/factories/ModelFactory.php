@@ -31,6 +31,27 @@ $factory->define(App\Construction::class, function (Faker\Generator $faker) {
 });
 
 
+$factory->define(App\Account::class, function (Faker\Generator $faker) {
+
+    return [
+        'bank' => $faker->name,
+        'account_number' => $faker->bankAccountNumber,
+    ];
+});
+
+
+$factory->define(App\Income::class, function (Faker\Generator $faker) {
+
+    return [
+        'construction_id' => random_int(1, 5),
+        'account_id' => random_int(1, 5),
+        'concept' => $faker->name,
+        'quantity' => random_int(1000, 600000),
+        'type' => random_int(1, 2)
+    ];
+});
+
+
 $factory->define(App\GeneralExpenditure::class, function (Faker\Generator $faker) {
 
     return [

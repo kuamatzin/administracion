@@ -19,6 +19,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    {!! Charts::assets() !!}
 </head>
 <body>
     <div id="app">

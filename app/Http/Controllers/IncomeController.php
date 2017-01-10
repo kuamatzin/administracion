@@ -3,31 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Construction;
-use App\GeneralExpenditure;
+use App\Income;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class GeneralExpenditureController extends Controller
+class IncomeController extends Controller
 {
-
-    public function show($id)
-    {
-        $gasto_general = GeneralExpenditure::findOrFail($id);
-
-         return view('gasto_general.show', compact('gasto_general'));
-    }
-
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'account_id' => 'required',
+            'concept' => 'required',
+            'quantity' => 'required|numeric'
         ]);
+
         if ($validator->fails()) {
             return $validator->getMessageBag()->toArray();
         }
         $obra = Construction::findOrFail($request->construction);
-        $obra->general_expenditures()->create($request->all());
+        $obra->incomes()->create($request->all());
 
         return "Exito";
+    }
+
+    public function show($obra_id)
+    {
+        $obra = Construction::findOrFail($obra_id);
+
+        return view('ingresos.show', compact('obra'));
     }
 }

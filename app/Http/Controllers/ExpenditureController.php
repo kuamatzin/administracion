@@ -16,7 +16,8 @@ class ExpenditureController extends Controller
             'unit_cost' => 'required',
             'quantity' => 'required',
             'total' => 'required',
-            'deductible' => 'required'
+            'deductible' => 'required',
+            'company' => 'required'
         ]);
 
         if ($validator->fails()) {

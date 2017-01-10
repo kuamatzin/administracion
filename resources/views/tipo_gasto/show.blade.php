@@ -84,8 +84,14 @@
 
                     <div class="form-group">
                         {!! Form::label('deductible', 'Tipo de egreso') !!}
-                        {!! Form::select('deductible',[0 => 'No deducible', 1 => 'Deducible'], null, ['id' => 'deductible', 'class' => 'form-control', 'v-model' => 'deductible']) !!}
+                        {!! Form::select('deductible',[''=> 'Tipo de egreso', 0 => 'No deducible', 1 => 'Deducible'], null, ['id' => 'deductible', 'class' => 'form-control', 'v-model' => 'deductible']) !!}
                         <small class="text-danger" v-if="errors.deductible">@{{errors.deductible[0]}}</small>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
+                        {!! Form::label('company', 'Empresa') !!}
+                        {!! Form::select('company', ['' => 'Empresa', 1 => 'Malintzi', 2 => 'Contrucciones S.A. de C.V.', 3 => 'Edificios ROI'], null, ['id' => 'company', 'class' => 'form-control']) !!}
+                        <small class="text-danger"v-if="errors.company">@{{errors.company[0]}}</small>
                     </div>
                 </div>
                 <div class="modal-footer">
