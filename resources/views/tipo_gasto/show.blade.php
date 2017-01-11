@@ -88,10 +88,10 @@
                         <small class="text-danger" v-if="errors.deductible">@{{errors.deductible[0]}}</small>
                     </div>
 
-                    <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
-                        {!! Form::label('company', 'Empresa') !!}
-                        {!! Form::select('company', ['' => 'Empresa', 1 => 'Malintzi', 2 => 'Contrucciones S.A. de C.V.', 3 => 'Edificios ROI'], null, ['id' => 'company', 'class' => 'form-control']) !!}
-                        <small class="text-danger"v-if="errors.company">@{{errors.company[0]}}</small>
+                    <div class="form-group{{ $errors->has('company_id') ? ' has-error' : '' }}">
+                        {!! Form::label('company_id', 'Empresa') !!}
+                        {!! Form::select('company_id', ['' => 'Empresa', 1 => 'Malintzi', 2 => 'Contrucciones S.A. de C.V.', 3 => 'Edificios ROI'], null, ['id' => 'company_id', 'class' => 'form-control', 'v-model' => 'company_id']) !!}
+                        <small class="text-danger"v-if="errors.company_id">@{{errors.company_id[0]}}</small>
                     </div>
                 </div>
                 <div class="modal-footer">

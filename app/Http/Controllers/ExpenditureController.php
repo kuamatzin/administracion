@@ -12,12 +12,12 @@ class ExpenditureController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'concept' => 'required',
-            'measure_unit' => 'required',
+            'measure_unit' => '',
             'unit_cost' => 'required',
             'quantity' => 'required',
             'total' => 'required',
             'deductible' => 'required',
-            'company' => 'required'
+            'company_id' => 'required'
         ]);
 
         if ($validator->fails()) {

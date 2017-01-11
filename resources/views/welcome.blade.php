@@ -83,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Sistema de Administración de Proyetos Inmobiliarios
+                    Sistema de Administración de Contabilidad
                 </div>
             </div>
         </div>
